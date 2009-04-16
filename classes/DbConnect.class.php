@@ -2,9 +2,9 @@
 
 class DbConnect {
 	private $host = 'localhost';
-	private $user = 'adelinei_admin';
-	private $pass = 'admin';
-	private $name = 'adelinei_login';
+	private $user = 'root';
+	private $pass = 'root';
+	private $name = 'addressbook';
 	private $conn;
 	
 	private static $instance;
