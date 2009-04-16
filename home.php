@@ -1,4 +1,5 @@
-<?php 
+<?php
+	session_start();
 	//include('scripts/loadUsers.php');
 	if (!isset($_SESSION['current_user'])) {
 		header("Location: index.php");
