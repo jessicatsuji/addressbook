@@ -13,6 +13,8 @@ class Login {
 	private static $errorMsg;
 	
 	public function __construct() {
+		return true;
+
 		$this->user_name = $_POST['userName'];
 		$this->password = $_POST['password'];
 		$this->table = "users";
