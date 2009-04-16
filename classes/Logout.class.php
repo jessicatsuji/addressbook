@@ -1,11 +1,11 @@
 <?php
-
+/* Logout class working. Old methods from Blend still here just incase we need them. */
 class Logout {
 	private $user_name;
 	private $db;
 	private $table;
-	private $active = "0";
-	private $closed = "1";
+	//private $active = "0";
+	//private $closed = "1";
 	private $query_string;
 	private $arguments;
 	private $result;
@@ -17,8 +17,8 @@ class Logout {
 		//Connect to database
 		$this->db = DbConnect::get();
 		
-		$this->endConvo();
-		$this->deleteMessages();
+		//$this->endConvo();
+		//$this->deleteMessages();
 		$this->logout();
 		$this->endSession();
 	}
