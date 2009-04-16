@@ -11,7 +11,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>AddressBook App</title>
 	<link type="text/css" rel="stylesheet" href="css/mainStyles.css" media="all" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
 	<script type="text/javascript" src="scripts/jqueryUI.js"></script>
 	<script type="text/javascript" src="scripts/signIn.js"></script>
 	<script type="text/javascript">
