@@ -35,6 +35,7 @@
 		soundManager.waitForWindowLoad = true;
 		soundManager.debugMode = false;
 		soundManager.onload = function() {
+			// a comment
 			soundManager.createSound('correct', 'sounds/correct2.mp3');
 			soundManager.createSound('error', 'sounds/error.mp3');
 		}
