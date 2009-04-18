@@ -11,6 +11,7 @@ function Processing() {
 			self.writeErrors();
 		else
 			//add Contact
+			alert('added contact');
 	}
 	
 	this.edit = function(response) {
@@ -23,5 +24,6 @@ function Processing() {
 	
 	this.writeErrors = function() {
 		//do something with the errors
+		alert('there was an error');
 	}
 }
