@@ -23,8 +23,8 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
-			self.ajaxAmbassador.makeRequest();
-			self.processing.add();
+			self.ajaxResponse = self.ajaxAmbassador.makeRequest();
+			self.processing.add(self.ajaxResponse);
 			
 	
 	}
@@ -33,8 +33,8 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
-			self.ajaxAmbassador.makeRequest();
-			self.processing.edit();
+			self.ajaxResponse = self.ajaxAmbassador.makeRequest();
+			self.processing.edit(self.ajaxResponse);
 	
 
 	}

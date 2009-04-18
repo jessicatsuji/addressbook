@@ -6,11 +6,22 @@ function Processing() {
 		self.root = element;
 	}
 	
-	this.add = function() {
+	this.add = function(response) {
+		if(response)
+			self.writeErrors();
+		else
+			//add Contact
+	}
+	
+	this.edit = function(response) {
+		if(response)
+			self.writeErrors();
+		else
+			//add Contact
 	
 	}
 	
-	this.edit = function() {
-	
+	this.writeErrors = function() {
+		//do something with the errors
 	}
 }
