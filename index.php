@@ -31,7 +31,7 @@
    				 }
 				
 			}
-			alert(string);
+			//alert(string);
 			
 		});
 	</script>
