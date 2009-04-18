@@ -14,6 +14,7 @@ function InterfaceActions() {
 		});
 	}
 	
+
 	this.addContact = function(element) {
 		self.ajaxAmbassador.construct(element);
 		self.processing.construct(element);
@@ -30,6 +31,14 @@ function InterfaceActions() {
 			//Do something with returned data
 	}
 	
+
+	this.addContact = function() {
+		//Wait for event
+			//ambassador.makeRequest(data)
+			//Do something with returned data
+	}
+	
+
 	this.editContact = function() {
 		//Wait for event
 			//ambassador.makeRequest(data)
