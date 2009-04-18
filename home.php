@@ -29,7 +29,52 @@
 				<h2>Welcome, <!-- dynamic Username -->!</h2>
 				<span id="preloader"></span>
 				<div id="addContact">
-					<!-- form goes here -->
+					<form action="scripts/addContact.php" method="post">						
+						<fieldset>
+							<label>First Name:</label>
+							<input type="text" name="firstName" />
+							
+							<label>Last Name:</label>
+							<input type="text" name="lastName" />
+							
+							<label>Phone:</label>
+							<div class="phone inputGroup">
+								<input type="text" name="phone1" />
+								<input type="text" name="phone2" />
+								<input type="text" name="phone3" />
+							</div>
+							
+							<label>Email:</label>
+							<input type="text" name="email" />
+							
+							<label>Company:</label>
+							<input type="text" name="Company" />
+							
+							<label>Address:</label>
+							<div class="address inputGroup">
+								<input type="text" name="address1" />
+								<input type="text" name="address2" />
+							</div>
+							
+							<div class="areaInfo inputGroup">
+								<label>City:</label>
+								<input type="text" name="city" />
+								
+								<label>State:</label>
+								<select class="state">
+									<option label="OR" title="Oregon" value="1"></option>
+								</select>
+								
+								<label>Zip:</label>
+								<input type="text" name="zipCode" />
+							</div>
+							
+							<label>Notes:</label>
+							<textarea name="notes"></textarea>
+							
+							<button type="submit">Submit</button>
+						</fieldset>
+					</form>
 				</div>
 			</div>
 		</div>
