@@ -17,6 +17,12 @@
 	<script type="text/javascript">
 		$(function() {
 			hideRegister();
+			var json = {
+				"firstname" : "kellan",
+				"lastname" : "craddock",
+				"age" : "24"
+			};
+			alert("hi");
 		});
 	</script>
 </head>
