@@ -1,3 +1,4 @@
 $(function() {
-	alert("addressBookApp.js");
+	var addressBookApp = new AddressBookApp();
+	addressBookApp.construct($("#wrapper"));
 });
