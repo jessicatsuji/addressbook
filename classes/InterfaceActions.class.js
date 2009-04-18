@@ -10,7 +10,7 @@ function InterfaceActions() {
 		//construct ambassador class
 		self.root = element;
 		
-		self.ajaxAmbassador.construct(element);
+		//self.ajaxAmbassador.construct(element);
 		self.processing.construct(element);
 		
 		$('#addContact form').submit(function() {
@@ -23,7 +23,11 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
-			self.ajaxResponse = self.ajaxAmbassador.makeRequest();
+			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
+			self.sendData = $(element + " #addContact form").serialize();
+			self.script = "addContact"
+			
+			self.ajaxResponse = self.ajaxAmbassador.construct(self.sendData, self.script);
 			self.processing.add(self.ajaxResponse);
 			
 	
@@ -33,7 +37,12 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
-			self.ajaxResponse = self.ajaxAmbassador.makeRequest();
+			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
+			
+			self.sendData = $(element + " #editContact form").serialize();
+			self.script = "editContact"
+			
+			self.ajaxResponse = self.ajaxAmbassador.construct(self.sendData, self.script);
 			self.processing.edit(self.ajaxResponse);
 	
 
