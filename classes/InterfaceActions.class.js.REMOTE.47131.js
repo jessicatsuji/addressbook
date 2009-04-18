@@ -9,21 +9,9 @@ function InterfaceActions() {
 	this.construct = function(element) {
 		//construct ambassador class
 		self.root = element;
-		$('#addContact form').submit(function() {
-			self.addContact(self.root);
-		});
+		self.ajaxAmbassador.construct(self.root);
+		self.processing.construct(self.root);
 	}
-	
-
-	this.addContact = function(element) {
-		self.ajaxAmbassador.construct(element);
-		self.processing.construct(element);
-	
-	}
-	
-	this.editContact = function(element) {
-		self.ajaxAmbassador.construct(element);
-		self.processing.construct(element);
 	
 	this.addContact = function() {
 		//Wait for event
@@ -31,7 +19,6 @@ function InterfaceActions() {
 			//Do something with returned data
 	}
 	
-
 	this.editContact = function() {
 		//Wait for event
 			//ambassador.makeRequest(data)
