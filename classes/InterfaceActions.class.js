@@ -7,15 +7,20 @@ function InterfaceActions() {
 	
 	this.construct = function(element) {
 		self.root = element;
-		self.ajaxAmbassador.construct(self.root);
-		self.processing.construct(self.root);
+		$('#addContact form').submit(function() {
+			self.addContact(self.root);
+		});
 	}
 	
-	this.addContact = function() {
+	this.addContact = function(element) {
+		self.ajaxAmbassador.construct(element);
+		self.processing.construct(element);
 	
 	}
 	
-	this.editContact = function() {
+	this.editContact = function(element) {
+		self.ajaxAmbassador.construct(element);
+		self.processing.construct(element);
 	
 	}
 }
