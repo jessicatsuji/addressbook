@@ -16,34 +16,21 @@ function InterfaceActions() {
 	
 
 	this.addContact = function(element) {
+		//Wait for event
+			//ambassador.makeRequest(data)
+			//Do something with returned data
 		self.ajaxAmbassador.construct(element);
 		self.processing.construct(element);
 	
 	}
 	
 	this.editContact = function(element) {
+		//Wait for event
+			//ambassador.makeRequest(data)
+			//Do something with returned data
 		self.ajaxAmbassador.construct(element);
 		self.processing.construct(element);
 	
-	this.addContact = function() {
-		//Wait for event
-			//ambassador.makeRequest(data)
-			//Do something with returned data
 
-	}
-	
-
-	this.addContact = function() {
-		//Wait for event
-			//ambassador.makeRequest(data)
-			//Do something with returned data
-
-	}
-	
-
-	this.editContact = function() {
-		//Wait for event
-			//ambassador.makeRequest(data)
-			//Do something with returned data
 	}
 }
