@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	//include('scripts/loadUsers.php');
 	if (!isset($_SESSION['current_user'])) {
 		header("Location: index.php");
 	}
@@ -12,62 +11,81 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>AddressBook App</title>
 	<link type="text/css" rel="stylesheet" href="css/mainStyles.css" media="all" />
-	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/jqueryUI.js"></script>
-	<script type="text/javascript" src="scripts/scrollTo.js"></script>
-	<script type="text/javascript" src="scripts/soundmanager2-nodebug-jsmin.js"></script>
-	<script type="text/javascript" src="classes/UpdateChat.class.js"></script>
-	<script type="text/javascript" src="classes/ChatApp.class.js"></script>
-	<script type="text/javascript" src="classes/RenderErrors.class.js"></script>
-	<script type="text/javascript" src="classes/EvalData.class.js"></script>
-	<script type="text/javascript" src="classes/LoadConversations.class.js"></script>
-	<script type="text/javascript" src="classes/EnableConversations.class.js"></script>
-	<script type="text/javascript" src="classes/StartConversation.class.js"></script>
-	<script type="text/javascript" src="classes/RenderConversation.class.js"></script>
-	<script type="text/javascript" src="classes/SetWindowPosition.class.js"></script>
-	<script type="text/javascript" src="classes/SetWindowFocus.class.js"></script>
-	<script type="text/javascript" src="classes/RenderMessages.class.js"></script>
-	<script type="text/javascript" src="classes/SendMessage.class.js"></script>
-	<script type="text/javascript" src="classes/EndConversation.class.js"></script>
-	<script type="text/javascript" src="scripts/chatApp.js"></script>
-	<script type="text/javascript">
-		soundManager.url = 'soundManager/';
-		soundManager.waitForWindowLoad = true;
-		soundManager.debugMode = false;
-		soundManager.onload = function() {
-			// a comment
-			soundManager.createSound('correct', 'sounds/correct2.mp3');
-			soundManager.createSound('error', 'sounds/error.mp3');
-		}
-	</script>
+	<!-- Libraries -->
+	<script type="text/javascript" src="libraries/jquery.js"></script>
+	<script type="text/javascript" src="libraries/jqueryUI.js"></script>
+	<!-- Classes -->
+	<script type="text/javascript" src="classes/AddressBookApp.class.js"></script>
+	<!-- Scripts -->
+	<script type="text/javascript" src="scripts/addressBookApp.js"></script>
 
 </head>
 
 <body>
 	<div id="wrapper">
-		<h1>Logo</h1>
-		<div id="controlPanel" class="interfaceElement">
-			<div id="controlPanelTop">
-				<h2>Control Panel</h2>
-			</div>
-			<div id="controlPanelBody">
-				<h3 id="loggedIn"><?php echo $_SESSION['current_user']; ?></h3>
-				<div class="listHeader">
-					<p>Friend List</p>
+		<div id="controlBarWrapper">
+			<div id="controlBarContent">
+				<h1>Logo</h1>
+				<h2>Welcome, <!-- dynamic Username -->!</h2>
+				<span id="preloader"></span>
+				<div id="addContact">
+					<form action="scripts/addContact.php" method="post">						
+						<fieldset>
+							<label>First Name:</label>
+							<input type="text" name="firstName" />
+							
+							<label>Last Name:</label>
+							<input type="text" name="lastName" />
+							
+							<label>Phone:</label>
+							<div class="phone inputGroup">
+								<input type="text" name="phone1" />
+								<input type="text" name="phone2" />
+								<input type="text" name="phone3" />
+							</div>
+							
+							<label>Email:</label>
+							<input type="text" name="email" />
+							
+							<label>Company:</label>
+							<input type="text" name="Company" />
+							
+							<label>Address:</label>
+							<div class="address inputGroup">
+								<input type="text" name="address1" />
+								<input type="text" name="address2" />
+							</div>
+							
+							<div class="areaInfo inputGroup">
+								<label>City:</label>
+								<input type="text" name="city" />
+								
+								<label>State:</label>
+								<select class="state">
+									<option label="OR" title="Oregon" value="1"></option>
+								</select>
+								
+								<label>Zip:</label>
+								<input type="text" name="zipCode" />
+							</div>
+							
+							<label>Notes:</label>
+							<textarea name="notes"></textarea>
+							
+							<button type="submit">Submit</button>
+						</fieldset>
+					</form>
 				</div>
-				<ul id="userList">
-					<?php
-						foreach($_SESSION['onlineUsers'] as $user) {
-							echo "<li><span class=\"" . $user . "\">" . $user . "</span></li>";
-						}
-					?>
-				</ul>
-			</div>
-			<div id="controlPanelFooter">
-				<a href="scripts/logout.php">Logout</a>
 			</div>
 		</div>
-		<span id="preloader"></span>
+		<div id="interfaceWrapper">
+			<div id="interfaceContent">
+				<!-- dynamic contact element
+				<div id="0" class="contact interfaceElement">
+				</div>
+				-->
+			</div>
+		</div>
 	</div>
 </body>
 </html>
