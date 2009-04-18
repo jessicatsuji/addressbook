@@ -16,6 +16,9 @@
 	<script type="text/javascript" src="libraries/jqueryUI.js"></script>
 	<!-- Classes -->
 	<script type="text/javascript" src="classes/AddressBookApp.class.js"></script>
+	<script type="text/javascript" src="classes/InterfaceActions.class.js"></script>
+	<script type="text/javascript" src="classes/AjaxAmbassador.class.js"></script>
+	<script type="text/javascript" src="classes/Processing.class.js"></script>
 	<!-- Scripts -->
 	<script type="text/javascript" src="scripts/addressBookApp.js"></script>
 
