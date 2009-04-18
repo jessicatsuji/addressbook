@@ -29,6 +29,7 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
+
 	}
 	
 
@@ -36,6 +37,7 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
+
 	}
 	
 
