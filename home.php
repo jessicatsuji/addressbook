@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	//include('scripts/loadUsers.php');
 	if (!isset($_SESSION['current_user'])) {
 		header("Location: index.php");
 	}
@@ -13,12 +12,12 @@
 	<title>AddressBook App</title>
 	<link type="text/css" rel="stylesheet" href="css/mainStyles.css" media="all" />
 	<!-- Libraries -->
-	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/jqueryUI.js"></script>
+	<script type="text/javascript" src="libraries/jquery.js"></script>
+	<script type="text/javascript" src="libraries/jqueryUI.js"></script>
 	<!-- Classes -->
-	<script type="text/javascript" src="classes/ChatApp.class.js"></script>
+	<script type="text/javascript" src="classes/AddressBookApp.class.js"></script>
 	<!-- Scripts -->
-	<script type="text/javascript" src="scripts/chatApp.js"></script>
+	<script type="text/javascript" src="scripts/addressBookApp.js"></script>
 
 </head>
 
@@ -27,7 +26,7 @@
 		<div id="controlBarWrapper">
 			<div id="controlBarContent">
 				<h1>Logo</h1>
-				<h2>Welcome, User!</h2>
+				<h2>Welcome, <!-- dynamic Username -->!</h2>
 				<span id="preloader"></span>
 				<div id="addContact">
 					<!-- form goes here -->
@@ -36,8 +35,10 @@
 		</div>
 		<div id="interfaceWrapper">
 			<div id="interfaceContent">
+				<!-- dynamic contact element
 				<div id="0" class="contact interfaceElement">
 				</div>
+				-->
 			</div>
 		</div>
 	</div>
