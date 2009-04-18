@@ -1,11 +1,11 @@
 function AjaxAmbassador() {
   var self = this;
   this.root;
-  this.dataObject;
+  this.sendData;
   this.script;
   
-  this.construct = function(dataObject, script) {
-    self.dataObject = dataObject; 
+  this.construct = function(sendData, script) {
+    self.sendData = sendData; 
     self.script = script;  
     self.makeRequest();
   }
@@ -17,7 +17,7 @@ function AjaxAmbassador() {
       cache: true, // default
       complete: function(returnData, textStatus) { self.complete(returnData, textStatus); },
       contentType: 'application/x-www-form-urlencoded', //default
-      data: "id=" + id + "&receiver=" + receiver + "&message=" + message, 
+      data: self.sendData, 
       dataFilter: null, //default
       dataType: 'json',
       error: function(returnData, textStatus, errorThrown) { alert("SendMessage Ajax broken: " + textStatus) },
@@ -25,7 +25,7 @@ function AjaxAmbassador() {
       ifModified: false, //default
       success: function(data, textStatus) { self.success(data, textStatus); },
       timeout: 10000, // milliseconds
-      url: self.script + '.php',
+      url: 'scripts/' + self.script + '.php',
       type: 'post'
       
     });
@@ -39,7 +39,7 @@ function AjaxAmbassador() {
   this.success = function(data, textStatus) {
     //Set data variable to be returned
     self.data = data;
-    self.handleData(self.data);
+    self.returnData(self.data);
   }
   
   this.complete = function(data, textStatus) {
