@@ -30,6 +30,7 @@
 			<div id="controlBarContent">
 				<h1>Logo</h1>
 				<h2>Welcome, <!-- dynamic Username -->!</h2>
+				<a href="scripts/logout.php">Logout</a>
 				<span id="preloader"></span>
 				<div id="addContact">
 					<form action="scripts/addContact.php" method="post">						

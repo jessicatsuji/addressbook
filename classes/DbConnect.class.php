@@ -2,8 +2,8 @@
 
 class DbConnect {
 	private $host = 'localhost';
-	private $user = 'root';
-	private $pass = 'root';
+	private $user = 'basic_user';
+	private $pass = 'basic_user';
 	private $name = 'addressbook';
 	private $conn;
 	
