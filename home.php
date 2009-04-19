@@ -53,7 +53,7 @@
 							<input type="text" name="email" />
 							
 							<label>Company:</label>
-							<input type="text" name="Company" />
+							<input type="text" name="company" />
 							
 							<label>Address:</label>
 							<div class="address inputGroup">
