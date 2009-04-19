@@ -33,7 +33,7 @@ function AjaxAmbassador() {
   }
   
   this.preloader = function() {
-    //$('#preloader').html("<img src='images/ajax-loader.gif'/>Loading");
+    $('#preloader').html("<img src='images/ajax-loader.gif'/>Loading");
   }
   
   this.success = function(data, textStatus) {
@@ -43,7 +43,7 @@ function AjaxAmbassador() {
   }
   
   this.complete = function(data, textStatus) {
-    //$('#preloader').html("");
+    $('#preloader').html("");
   }
   
   this.returnData = function() {
@@ -52,7 +52,7 @@ function AjaxAmbassador() {
   }
   
   this.handleData = function(data) {
-    soundManager.play('correct');
+    //soundManager.play('correct');
     
     this.renderMessages = new RenderMessages();
     this.renderMessages.construct(data['message']['new']['id'], data['message']['new']['sender'], data['message']['new']['message'], data['message']['new']['time']);
