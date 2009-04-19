@@ -14,7 +14,7 @@
 		private static $errorMsg = NULL;
 		
 		public function __construct() {
-
+		
 			//POST array
 			$this->postArray = array(
 				'Password'=>$_POST['password'],
