@@ -18,6 +18,7 @@ function InterfaceActions() {
 		
 		$('#addContact form').submit(function() {
 			self.addContact(self.root);
+			return false;
 		});
 	}
 	
@@ -41,10 +42,10 @@ function InterfaceActions() {
 			//ambassador.makeRequest(data)
 			//Do something with returned data
 			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
-			self.sendData = $(element + " #addContact form").serialize();
+			self.sendData = $("#addContact form", element).serialize();
 			self.script = "addContact"
 			
-			self.ajaxResponse = self.ajaxAmbassador.construct(self.sendData, self.script);
+			self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
 			self.processing.add(self.ajaxResponse);
 			
 	
