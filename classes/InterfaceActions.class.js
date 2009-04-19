@@ -13,11 +13,20 @@ function InterfaceActions() {
 		//self.ajaxAmbassador.construct(element);
 		self.processing.construct(element);
 		
+		//Hide/Show add contact panel
+		self.showAddPanel(element);
+		
 		$('#addContact form').submit(function() {
 			self.addContact(self.root);
 		});
 	}
 	
+	this.showAddPanel = function(element) {
+		var addBtn = $("#addBtn", element);
+		var addPanel = $("#addContact", element);
+		
+		addPanel.hide();
+	}
 
 	this.addContact = function(element) {
 		//Wait for event
