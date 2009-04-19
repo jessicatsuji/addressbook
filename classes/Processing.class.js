@@ -15,10 +15,11 @@ function Processing() {
 	}
 	
 	this.edit = function(response) {
-		if(response)
+		if(response) {
 			self.writeErrors();
-		else
+		} else {
 			//add Contact
+		}	
 	
 	}
 	
