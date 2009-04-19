@@ -23,7 +23,7 @@ function AjaxAmbassador() {
       error: function(returnData, textStatus, errorThrown) { alert("SendMessage Ajax broken: " + textStatus) },
       global: true, //default
       ifModified: false, //default
-      success: function(data, textStatus) { self.success(data, textStatus); },
+      success: function(returnData, textStatus) { self.success(returnData, textStatus); },
       timeout: 10000, // milliseconds
       url: 'scripts/' + self.script + '.php',
       type: 'post'
@@ -36,20 +36,13 @@ function AjaxAmbassador() {
     $('#preloader').html("<img src='images/ajax-loader.gif'/>Loading");
   }
   
-  this.success = function(data, textStatus) {
+  this.success = function(returnData, textStatus) {
     //Set data variable to be returned
-    alert("ID: " + data["id"] + " Message:" + data["message"]);
-    self.data = data;
-    self.returnData(self.data);
+    return returnData;
   }
   
   this.complete = function(data, textStatus) {
     $('#preloader').html("");
-  }
-  
-  this.returnData = function() {
-    //Return data
-    return self.data;
   }
   
   this.handleData = function(data) {
