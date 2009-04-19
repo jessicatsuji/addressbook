@@ -6,25 +6,25 @@ function Processing() {
 		self.root = element;
 	}
 	
-	this.add = function(response) {
-		if(response) {
+	this.add = function(returnData) {
+		if(returnData['errorMessage'] != NULL) {
+			self.writeErrors(returnData);
+		} else {
+			alert('ID: ' + returnData['id'] + ' added!');
+		}	
+	}
+	
+	this.edit = function(returnData) {
+		if(returnData) {
 			self.writeErrors();
 		} else {
 			//add Contact
 		}	
-	}
-	
-	this.edit = function(response) {
-		if(response) {
-			self.writeErrors();
-		} else {
-			//add Contact
-		}	
 	
 	}
 	
-	this.writeErrors = function() {
+	this.writeErrors = function(returnData) {
 		//do something with the errors
-		alert('there was an error');
+		alert(returnData['errorMessage']);
 	}
 }
