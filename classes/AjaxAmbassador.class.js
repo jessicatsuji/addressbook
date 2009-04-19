@@ -4,13 +4,13 @@ function AjaxAmbassador() {
   this.sendData;
   this.script;
   
-  this.construct = function(sendData, script) {
-    self.sendData = sendData; 
-    self.script = script;  
-    self.makeRequest();
+  this.construct = function() {
   }
   
-  this.makeRequest = function() {
+  this.makeRequest = function(sendData, script) {
+  	self.sendData = sendData; 
+    self.script = script;
+    
     $.ajax({
       async: true, // default
       beforeSend: function() { self.preloader(); },
@@ -38,6 +38,7 @@ function AjaxAmbassador() {
   
   this.success = function(data, textStatus) {
     //Set data variable to be returned
+    alert("ID: " + data["id"] + " Message:" + data["message"]);
     self.data = data;
     self.returnData(self.data);
   }
