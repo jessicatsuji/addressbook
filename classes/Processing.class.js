@@ -7,11 +7,11 @@ function Processing() {
 	}
 	
 	this.add = function(response) {
-		if(response)
+		if(response) {
 			self.writeErrors();
-		else
+		} else {
 			//add Contact
-			alert('added contact');
+		}	
 	}
 	
 	this.edit = function(response) {
