@@ -9,8 +9,7 @@ function InterfaceActions() {
 		//construct ambassador class
 		self.root = element;
 		
-		//self.ajaxAmbassador.construct(element);
-		self.processing.construct(element);
+		self.ajaxAmbassador.construct(element);
 		
 		//Hide/Show add contact panel
 		self.showAddPanel(element);
