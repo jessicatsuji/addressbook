@@ -22,7 +22,7 @@
 		private $line;
 		public static $contact_id = NULL;
 		public static $error_message = NULL;
-		public static $return_array;
+		private static $return_array;
 		
 		public function __construct() {
 			
@@ -31,6 +31,10 @@
 			
 			//Checks the $error variable, if set then set errors and redirect to index else query db
 			$this->handleInfo();
+		}
+		
+		public function __get($return_array) {
+			return $this->return_array;
 		}
 		
 		private function validateInfo() {
