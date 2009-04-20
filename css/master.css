@@ -81,6 +81,11 @@ body{
 
 .contactWidget {
 	background: #fff;
-	width: 150px;
+	padding: 5px;
+	width: 200px;
 }
+
+	.contactWidget fieldset {
+		border: solid 1px #ccc;
+	}
 
