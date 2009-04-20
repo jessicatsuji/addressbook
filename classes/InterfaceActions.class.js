@@ -14,7 +14,7 @@ function InterfaceActions() {
 		//Hide/Show add contact panel
 		self.showAddPanel(element);
 		
-		$('#addContact form').bind('submit', function() {
+		$('#addContactForm', element).bind('submit', function() {
 			self.addContact(self.root);
 			return false;
 		});
@@ -42,7 +42,6 @@ function InterfaceActions() {
 			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
 			self.sendData = $("#addContact form", element).serialize();
 			self.script = "addContact";
-			
 			self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
 	}
 	
