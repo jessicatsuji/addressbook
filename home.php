@@ -38,6 +38,11 @@
 				<div id="addContact">
 					<form id="addContactForm" action="scripts/addContact.php" method="post">						
 						<fieldset>
+							
+							<span id="addHeader">Add a Contact:</span>
+						
+							<img src="images/defaultPic.gif" />
+							
 							<label>First Name:</label>
 							<input type="text" name="firstName" />
 							
@@ -46,9 +51,9 @@
 							
 							<label>Phone:</label>
 							<div class="phone inputGroup">
-								<input type="text" name="phone1" />
-								<input type="text" name="phone2" />
-								<input type="text" name="phone3" />
+								<input type="text" name="phone1" maxlength="3" size="3" />
+								<input type="text" name="phone2" maxlength="3" size="3" />
+								<input type="text" name="phone3" maxlength="4" size="4" />
 							</div>
 							
 							<label>Email:</label>
@@ -58,7 +63,7 @@
 							<input type="text" name="company" />
 							
 							<label>Address:</label>
-							<div class="address inputGroup">
+							<div class="address">
 								<input type="text" name="address1" />
 								<input type="text" name="address2" />
 							</div>
@@ -77,7 +82,7 @@
 								</select>
 								
 								<label>Zip:</label>
-								<input type="text" name="zipCode" />
+								<input type="text" name="zipCode" maxlength="5" size="5" />
 							</div>
 							
 							<label>Notes:</label>

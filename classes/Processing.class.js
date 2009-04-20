@@ -42,6 +42,8 @@ function Processing() {
 			content += 		'<form action="#" method="post" id="form_' + returnData['data']['id'] + '">';
 			content += 			'<fieldset>';
 			
+			content += '<img src="images/defaultPic.gif" />';
+			
 			content += 				'<label>First Name:</label>';
 			content += 				'<input type="text" name="firstName_' + returnData['data']['id'] + '" id="firstName_' + returnData['data']['id'] + '" value="' + returnData['data']['first_name'] + '" />';
 			
@@ -50,9 +52,9 @@ function Processing() {
 			
 			content += 				'<label>Phone:</label>';
 			content +=				'<div class="phone inputGroup">';
-			content +=					'<input type="text" name="phone1_' + returnData['data']['id'] + '" id="phone1_' + returnData['data']['id'] + '" value="' + returnData['data']['phone_one'] + '" />';
-			content +=					'<input type="text" name="phone2_' + returnData['data']['id'] + '" id="phone2_' + returnData['data']['id'] + '" value="' + returnData['data']['phone_two'] + '" />';
-			content +=					'<input type="text" name="phone3_' + returnData['data']['id'] + '" id="phone3_' + returnData['data']['id'] + '" value="' + returnData['data']['phone_three'] + '" />';
+			content +=					'<input type="text" name="phone1_' + returnData['data']['id'] + '" id="phone1_' + returnData['data']['id'] + '" value="' + returnData['data']['phone_one'] + '" maxlength="3" size="3" />';
+			content +=					'<input type="text" name="phone2_' + returnData['data']['id'] + '" id="phone2_' + returnData['data']['id'] + '" value="' + returnData['data']['phone_two'] + '" maxlength="3" size="3" />';
+			content +=					'<input type="text" name="phone3_' + returnData['data']['id'] + '" id="phone3_' + returnData['data']['id'] + '" value="' + returnData['data']['phone_three'] + '" maxlength="4" size="4" />';
 			content +=				'</div>';
 			
 			content +=				'<label>Email:</label>';
@@ -62,7 +64,7 @@ function Processing() {
 			content +=				'<input type="text" name="company_' + returnData['data']['id'] + '" id="company_' + returnData['data']['id'] + '" value="' + returnData['data']['company'] + '" />';
 			
 			content +=				'<label>Address:</label>';
-			content +=				'<div class="address inputGroup">';
+			content +=				'<div class="address">';
 			content +=					'<input type="text" name="address1_' + returnData['data']['id'] + '" id="address1_' + returnData['data']['id'] + '" value="' + returnData['data']['address_one'] + '" />';
 			content +=					'<input type="text" name="address2_' + returnData['data']['id'] + '" id="address2_' + returnData['data']['id'] + '" value="' + returnData['data']['address_two'] + '" />';
 			content +=				'</div>';
@@ -100,7 +102,7 @@ function Processing() {
 			content +=					'</select>';
 			
 			content +=					'<label>Zip:</label>';
-			content +=					'<input type="text" name="zipCode_' + returnData['data']['id'] + '" id="zipCode_' + returnData['data']['id'] + '" value="' + returnData['data']['zip_code'] + '" />';
+			content +=					'<input type="text" name="zipCode_' + returnData['data']['id'] + '" id="zipCode_' + returnData['data']['id'] + '" value="' + returnData['data']['zip_code'] + '" maxlength="5" size="5" />';
 			content +=				'</div>';
 			
 			content +=				'<label>Notes:</label>';

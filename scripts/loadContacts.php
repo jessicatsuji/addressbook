@@ -34,6 +34,8 @@
 			//Form hidden by default until clicked
 			echo "<form action=\"scripts/editContact.php\" method=\"post\" id=\"form_{$info['contact_id']}\">				   			";		
 			echo "	<fieldset>														   				";
+			
+			echo "<img src=\"images/defaultPic.gif\" />";
 			echo "		<label>First Name:</label>									   				";
 			echo "		<input type=\"text\" name=\"firstName_{$info['contact_id']}\" id=\"firstName_{$info['contact_id']}\" value=\"{$info['first_name']}\" />	";
 			echo "																	  				";
@@ -42,9 +44,9 @@
 			echo "																	   				";
 			echo "		<label>Phone:</label>										   				";
 			echo "		<div class=\"phone inputGroup\">								   			";
-			echo "			<input type=\"text\" name=\"phone1_{$info['contact_id']}\" id=\"phone1_{$info['contact_id']}\" value=\"{$info['phone_one']}\" />	";
-			echo "			<input type=\"text\" name=\"phone2_{$info['contact_id']}\" id=\"phone2_{$info['contact_id']}\" value=\"{$info['phone_two']}\" />	";
-			echo "			<input type=\"text\" name=\"phone3_{$info['contact_id']}\" id=\"phone3_{$info['contact_id']}\" value=\"{$info['phone_three']}\" />";
+			echo "			<input type=\"text\" name=\"phone1_{$info['contact_id']}\" id=\"phone1_{$info['contact_id']}\" value=\"{$info['phone_one']}\" maxlength=\"3\" size=\"3\" />	";
+			echo "			<input type=\"text\" name=\"phone2_{$info['contact_id']}\" id=\"phone2_{$info['contact_id']}\" value=\"{$info['phone_two']}\" maxlength=\"3\" size=\"3\" />	";
+			echo "			<input type=\"text\" name=\"phone3_{$info['contact_id']}\" id=\"phone3_{$info['contact_id']}\" value=\"{$info['phone_three']}\" maxlength=\"4\" size=\"4\" />";
 			echo "		</div>														   				";
 			echo "																	   				";
 			echo "		<label>Email:</label>										   				";
@@ -54,7 +56,7 @@
 			echo "		<input type=\"text\" name=\"company_{$info['contact_id']}\" id=\"company_{$info['contact_id']}\" value=\"{$info['company']}\" />		";
 			echo "																	   				";
 			echo "		<label>Address:</label>										   				";
-			echo "		<div class=\"address inputGroup\">							   				";
+			echo "		<div class=\"address\">							   				";
 			echo "			<input type=\"text\" name=\"address1_{$info['contact_id']}\" id=\"address1_{$info['contact_id']}\" value=\"{$info['address_one']}\" />";
 			echo "			<input type=\"text\" name=\"address2_{$info['contact_id']}\" id=\"address2_{$info['contact_id']}\" value=\"{$info['address_two']}\" />";
 			echo "		</div>														   				";
@@ -92,7 +94,7 @@
 			echo "			</select>												   				";
 			echo "																	   				";
 			echo "			<label>Zip:</label>										   				";
-			echo "			<input type=\"text\" name=\"zipCode_{$info['contact_id']}\" id=\"zipCode_{$info['contact_id']}\" value=\"{$info['zip_code']}\" />	";
+			echo "			<input type=\"text\" name=\"zipCode_{$info['contact_id']}\" id=\"zipCode_{$info['contact_id']}\" value=\"{$info['zip_code']}\" maxlength=\"5\" size=\"5\" />	";
 			echo "		</div>														   				";
 			echo "																	   				";
 			echo "		<label>Notes:</label>										   				";
