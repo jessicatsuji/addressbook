@@ -1,93 +1,90 @@
-<?
-class Login {
+<?php
+	class EditContact {
+		private $first_name;
+		private $last_name; 
+		private $phone_one; 
+		private $phone_two; 
+		private $phone_three; 
+		private $email;
+		private $company;
+		private $address_one; 
+		private $address_two; 
+		private $city;
+		private $state;
+		private $zip_code;
+		private $notes;
+		private $db;
+		private $table;
+		private $logged_in;
+		private $query_string;
+		private $arguments;
+		private $result;
+		private $line;
+		private static $contact_id = NULL;
+		private $real_contact_id;
+		
+		public function __construct() {
+			
+			//Checks the posts for spaces, blanks, and matching passwords
+			$this->validateInfo();
+			
+			//Checks the $error variable, if set then set errors and redirect to index else query db
+			$this->handleInfo();
+		}
+		
+		private function validateInfo() {
+			//If all post variables are set
+			if (isset($_POST['firstName']) && $_POST['firstName'] != '') {
+			
+				//return true;
+			
+			} else {
+				$this->error_message .= "First Name is Required";
+			}
+		}
+		
+		private function handleInfo() {
+			// This is dirty...gross...
+			$result = preg_split( "/firstName/", $_POST['firstName']);
+			$contact_id = $result[1];
+			
+			$realResult = preg_split( "/_/", $contact_id );
+			$real_contact_id = $realResult[1];
+			
+			$this->first_name = $_POST['firstName'] . $contact_id;
+			$this->last_name = $_POST['lastName'] . $contact_id;
+			$this->phone_one = $_POST['phone1'] . $contact_id;
+			$this->phone_two = $_POST['phone2'] . $contact_id;
+			$this->phone_three = $_POST['phone3'] . $contact_id;
+			$this->email = $_POST['email'] . $contact_id;
+			$this->company = $_POST['company'] . $contact_id;
+			$this->address_one = $_POST['address1'] . $contact_id;
+			$this->address_two = $_POST['address2'] . $contact_id;
+			$this->city = $_POST['city'] . $contact_id;
+			$this->state = $_POST['state'] . $contact_id;
+			$this->zip_code = $_POST['zipCode'] . $contact_id;
+			$this->notes = $_POST['notes'] . $contact_id;
+			$this->table = "contacts";
+
+			//Insert query
+			$this->query_string = "UPDATE %s SET (first_name, last_name, phone_one, phone_two, phone_three, email, company, address_one, address_two, city, state, zip_code, notes, user_id) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') WHERE user_id = '%s';";
+			
+			//Package array for query arguments
+			$this->packageEditArguments();
 	
-	private $user_name;
-	private $password;
-	private $table;
-	private $arguments;
-	private $db;
-	private static $query_string;
-	private $result;
-	private $line;
-	private static $errorMsg;
-	
-	public function __construct() {
+			//Connect to database
+			$this->db = DbConnect::get();
+					
+			//call query method
+			$this->result = $this->db->query($this->query_string, $this->arguments);
+
+		}
 		
-		$this->user_name = $_POST['userName'];
-		$this->password = $_POST['password'];
-		$this->table = "users";
-		
-		//Connect to database
-		$this->db = DbConnect::get();
-		
-		//Call validate method
-		$this->validate();
-		
-		//Encrypt login
-		$this->encryptLogin();
-		
-		//Select query
-		$this->query_string = "SELECT * FROM %s WHERE user_name = '%s' AND password = '%s'";
-		//$this->selectQuery("SELECT * FROM %s WHERE user_name = '%s' AND password = '%s'");
-		
-		//Package array for query arguments
-		$this->packageArguments();
-		
-		//call query method
-		$this->result = $this->db->query($this->query_string, $this->arguments);
-		
-		//
-		$this->handleResults();
-		
-	}
-	
-	private function validate() {
-		//Check if username and password are sent
-		if(isset($this->user_name) && isset($this->password)) {
-			//Call encryptLogin method
+		private function packageEditArguments() {
+			$this->arguments = array($this->table, $this->first_name, $this->last_name, $this->phone_one, $this->phone_two, $this->phone_three, $this->email, $this->company, $this->address_one, $this->address_two, $this->city, $this->state, $this->zip_code, $this->notes, $real_contact_id);
 			return true;
 		}
+
 	}
-	
-	private function encryptLogin() {
-		$this->password = crypt($this->password, md5($this->user_name));
-		return true;
-	}
-	
-	private function packageArguments() {
-		$this->arguments = array($this->table, $this->user_name, $this->password);
-		return true;
-	}
-	
-	/*private function selectQuery($queryString) {
-		//Use a clean SELECT stament to grab user info
-		$this->query_string = $queryString;
-		return true;
-	}*/
-	
-	private function handleResults() {
-		//split results into array
-		$this->line = mysql_fetch_array($this->result, MYSQL_ASSOC);
-		
-		if ($this->user_name == $this->line['user_name'] && $this->password == $this->line['password']) {
-		
-			//Set session redirect
-			$_SESSION['login'] = true;
-			$_SESSION['current_user'] = $this->line['user_name'];
-			
-			$this->query_string = "UPDATE %s SET logged_in = 1 WHERE user_name = '%s' AND password = '%s'";
-			$this->result = $this->db->query($this->query_string, $this->arguments);
-			
-			header("Location: ../home.php");
-		} else {
-			$this->errorMsg .= 'Bad username and password';
-			$_SESSION['error'] = $this->errorMsg;
-			header("Location: ../index.php");
-		}
-		
-		return true;
-	}
-	
-	
-}
+
 ?>
