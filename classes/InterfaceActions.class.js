@@ -4,7 +4,6 @@ function InterfaceActions() {
 	//Create new instance of ambassador class here
 	
 	this.ajaxAmbassador = new AjaxAmbassador();
-	this.processing = new Processing();
 	
 	this.construct = function(element) {
 		//construct ambassador class
@@ -16,7 +15,7 @@ function InterfaceActions() {
 		//Hide/Show add contact panel
 		self.showAddPanel(element);
 		
-		$('#addContact form').submit(function() {
+		$('#addContact form').bind('submit', function() {
 			self.addContact(self.root);
 			return false;
 		});
@@ -43,12 +42,9 @@ function InterfaceActions() {
 			//Do something with returned data
 			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
 			self.sendData = $("#addContact form", element).serialize();
-			self.script = "addContact"
+			self.script = "addContact";
 			
 			self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
-			self.processing.add(self.ajaxResponse);
-			
-	
 	}
 	
 	this.editContact = function(element) {
