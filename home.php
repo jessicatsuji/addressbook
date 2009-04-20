@@ -2,6 +2,8 @@
 	session_start();
 	if (!isset($_SESSION['current_user'])) {
 		header("Location: index.php");
+	} else {
+		include('scripts/loadContacts.php');
 	}
 ?>
 
@@ -28,7 +30,7 @@
 	<div id="wrapper">
 		<div id="controlBarWrapper">
 			<div id="controlBarContent">
-				<h1><?php echo $_SESSION['current_user'] ?>'s <span>addressbook</span></h1>
+				<h1><?php echo $_SESSION['current_user'] ?>'s <span>addressBook</span></h1>
 				<a class="logout" href="scripts/logout.php">Logout</a>
 				<span id="preloader"></span>
 				<div id="addBtn"><span>Add Contact</span></div>
@@ -90,6 +92,20 @@
 				<div id="0" class="contact interfaceElement">
 				</div>
 				-->
+				
+				<?php 
+					foreach($loadContacts as $contact) {
+						foreach($contact as $info) {
+							echo '<div>';
+							foreach($info as $data) {
+								echo '<div>';
+								echo($data);
+								echo '</div>';
+							}
+							echo '</div>';
+						}
+					}
+				?>
 			</div>
 		</div>
 	</div>
