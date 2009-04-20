@@ -9,7 +9,8 @@
 
 }
 
-body{ 
+body{
+	background: #333; 
 	font-family: Verdana, Helvetica, Arial;
 	font-size: 12px;
 }
@@ -75,3 +76,16 @@ body{
 		padding-top: 10px;
 		text-align: center;
 	}
+
+/*Contact Widget*/
+
+.contactWidget {
+	background: #fff;
+	padding: 5px;
+	width: 200px;
+}
+
+	.contactWidget fieldset {
+		border: solid 1px #ccc;
+	}
+

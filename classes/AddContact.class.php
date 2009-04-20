@@ -98,7 +98,7 @@
 					
 					$this->contact_id = $this->line['id'];
 
-					$this->return_array = array('id'=>$this->contact_id, 'errorMessage'=>NULL);
+					$this->return_array = array('id'=>$this->contact_id, 'data'=>$this->line, 'errorMessage'=>NULL);
 				} else {
 					$this->error_message = 'Unable to add contact';
 					$this->return_array = array('id'=>$this->contact_id, 'errorMessage'=>$this->error_message);
