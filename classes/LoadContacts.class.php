@@ -69,8 +69,10 @@
 					
 					array_push($this->contacts_array, $this->contact);
 				}
+				return $this->contacts_array;
 			} else {
-				$this->contacts_array = "You have No Contacts";
+				$this->error_message = "You have No Contacts";
+				return $this->error_message;
 			}
 
 		}
