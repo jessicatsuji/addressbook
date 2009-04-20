@@ -33,14 +33,24 @@
 			}
 			//alert(string);
 			
+			
+			
+			
+			$('#createBox').hide();
+			
+			$('#createAccount').toggle(function() {
+				$('#createBox').slideDown('fast');
+			}, function() {
+				$('#createBox').slideUp('slow');
+			});
 		});
 	</script>
 </head>
 
 <body>
-		<h1>Logo</h1>
 		<div id="signIn">
 			<div id="signInTop">
+				<h1>AddressBook App</h1>
 				<h2>Sign In</h2>
 			</div>
 			<div id="signInBody">

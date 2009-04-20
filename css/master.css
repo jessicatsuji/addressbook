@@ -15,12 +15,38 @@ body{
 	font-size: 12px;
 }
 
+button {
+	margin-top: 10px;
+}
+
+input, textarea, label, select {
+	display:block;
+	width: 275px;
+}
+
+	label {
+		color: #6a85a4;
+		font-size: 13px;
+		font-weight: bold;
+		margin: 6px 0 3px 0;
+	}
+	
+	#addContact label {
+		color: #74996a;
+		font-size: 14px;
+	}
+
+.inputGroup input, .inputGroup select {
+	display:inline;
+	width: inherit;
+}
+
 .clear {
 	clear: both;
 }
 /*Control Bar*/
 
-#controlBarWrapper {
+#controlBarWrapper, #signInTop {
 	background: url(../images/toolBarBG.gif) repeat-x;
 	height: 40px;
 }
@@ -30,7 +56,7 @@ body{
 	width: 964px;
 }
 
-#controlBarContent h1 {
+#controlBarContent h1, #signInTop h1 {
 	border-left: solid 1px #292929;
 	color: #cedfe6;
 	float: left;
@@ -38,9 +64,16 @@ body{
 	line-height: 40px;
 	padding-left: 30px;
 }
-	#controlBarContent h1 span {
+	#controlBarContent h1 span, #signInTop h2 {
 		color: #505c61;
 		font-weight: normal;
+	}
+	
+	#signInTop h2 {
+		float: left;
+		font-size: 20px;
+		line-height: 40px;
+		margin-left: 30px;
 	}
 	
 .logout {
@@ -54,10 +87,30 @@ body{
 }
 
 #addContact {
+	background:#fff url(../images/addBG.gif) repeat-x;
+	border-left: solid 2px #fff;
+	border-right: solid 2px #fff;
 	float: right;
 	margin-right: 13px;
-	width: 217px;	
+	padding: 0 12px 12px 12px;
+	width: 280px;	
 }
+
+	#addContact fieldset {
+		background: url(../images/addBGarrow.gif) right top no-repeat;
+		border: none;
+		border-collapse: collapse;
+	}
+		
+		#addHeader {
+			margin-left: 0px;
+			color: #7bbb3d;
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 40px;
+			letter-spacing: -1px;
+			margin-top: 20px;
+		}
 
 #addBtn {
 	border-left: solid 1px #292929;
@@ -77,6 +130,27 @@ body{
 		height: 30px;
 		padding-top: 10px;
 		text-align: center;
+	}
+	
+/* Sign In Content */
+
+#signInBody {
+	background:#fff url(../images/addBG.gif) repeat-x;
+	border-left: solid 2px #fff;
+	border-right: solid 2px #fff;
+	margin: 30px auto;
+	padding: 0 12px 12px 12px;
+	width:280px;
+}
+
+#createAccount {
+	margin-top: 20px;
+	color: #99bfeb;
+	cursor: pointer;
+}
+
+	#signInBody fieldset {
+		border: none;
 	}
 	
 /* Interface Content */
@@ -109,11 +183,22 @@ body{
 		height: 80px;
 	}
 	
-	.contact img {
+	.contactWidget img, #addContact img {
+		background: #fafafa;
+		border: #dfdfdf solid 1px;
 		display: block;
 		float: left;
 		margin: 0 12px 12px 0;
+		padding: 6px;
 	}
+	
+		.contactWidget form img, #addContact img {
+			float: none;
+		}
+		
+		#addContact img {
+			margin: 0;
+		}
 	
 	.contact .clear {
 		clear:left;
