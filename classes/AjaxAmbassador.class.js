@@ -7,7 +7,6 @@ function AjaxAmbassador() {
 	this.processing = new Processing();
 	
 	this.construct = function(element) {
-		this.processing.construct(element);
 	}
 	
 	//Ajax call to add a contact
