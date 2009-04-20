@@ -60,12 +60,16 @@ function Processing() {
 			content +=				'<label>Notes:</label>';
 			content +=				'<textarea name="notes' + returnData['data']['id'] + '" id="notes' + returnData['data']['id'] + '">' + returnData['data']['notes'] + '</textarea>';
 			
-			content +=				'<button type="submit">Submit</button>';
+			content +=				'<button type="submit" id="updateBtn' + returnData['data']['id'] + '">Update</button>';
 			content +=			'</fieldset>';
 			content +=		'</form>';
 			content +=	'</div>';
 			
 			$('#interfaceContent', self.root).append( content );
+			$('.contactWidget form #updateBtn' + returnData['data']['id']).bind('submit',function(){
+				alert('update widget #' + returnData['data']['id']);
+				return false;
+			});
 		}	
 	}
 	
