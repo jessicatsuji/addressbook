@@ -22,6 +22,7 @@ function Processing() {
 			
 			//Mini Info
 			content += '<div id="' + returnData['data']['id'] + '" class="contact interfaceElement">';
+			content += '<img src="images/defaultPic.gif" />';
 			content += '	<h3>' + returnData['data']['first_name'] + ' ' + returnData['data']['last_name'] + '</h3>';
 			
 			if(returnData['data']['company']) {
@@ -31,8 +32,10 @@ function Processing() {
 				content += '	<address>' + returnData['data']['email'] + '</address>';
 			}	
 			if(returnData['data']['phone_one'] && returnData['data']['phone_two'] && returnData['data']['phone3']) {
-				content += '	<span class="phone">(' + returnData['data']['phone_one'] + ')-' + returnData['data']['phone_two'] + '-' + returnData['data']['phone_three'] + '</address>';
+				content += '	<span class="phone">(' + returnData['data']['phone_one'] + ')-' + returnData['data']['phone_two'] + '-' + returnData['data']['phone_three'] + '</span>';
 			}
+			
+			content += '	<span class=\"clear\"><!-- --></span>';	
 			content += '</div>';
 			
 			//Form hidden by default until clicked
@@ -162,7 +165,8 @@ function Processing() {
 			
 			$(form).hide();
 			
-			var content = '	<h3>' + firstName + ' ' + lastName + '</h3>';
+			var content = '<img src="images/defaultPic.gif" />';
+			content += '	<h3>' + firstName + ' ' + lastName + '</h3>';
 			
 			if(company) {
 				content += '	<h5 class="company">' + company + '</h5>';
@@ -171,9 +175,11 @@ function Processing() {
 				content += '	<address>' + email + '</address>';
 			}	
 			if(phone1 && phone2 && phone3) {
-				content += '	<span class="phone">(' + phone1 + ')-' + phone2 + '-' + phone3 + '</address>';
+				content += '	<span class="phone">(' + phone1 + ')-' + phone2 + '-' + phone3 + '</span>';
 			}
 			
+			content += '	<span class=\"clear\"><!-- --></span>';		
+				
 			$(miniInfo).show().html(content);
 		} else {
 			//add Contact

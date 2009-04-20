@@ -27,7 +27,7 @@ body{
 
 #controlBarContent {
 	margin: 0 auto;
-	width: 948px;
+	width: 964px;
 }
 
 #controlBarContent h1 {
@@ -55,6 +55,7 @@ body{
 
 #addContact {
 	float: right;
+	margin-right: 13px;
 	width: 217px;	
 }
 
@@ -63,6 +64,7 @@ body{
 	border-right: solid 1px #292929;
 	cursor: pointer;
 	float: right;
+	margin-right: 13px;
 	padding-right: 30px;
 	width: 168px;
 }
@@ -76,16 +78,58 @@ body{
 		padding-top: 10px;
 		text-align: center;
 	}
+	
+/* Interface Content */
+
+#interfaceContent {
+	margin: 0 auto;
+	width: 964px;
+}
 
 /*Contact Widget*/
 
 .contactWidget {
-	background: #fff;
-	padding: 5px;
-	width: 200px;
+	background: #f0f0f0;
+	display: block;
+	float: left;
+	margin: 13px 13px 0 0;
+	padding: 6px;
+	width: 296px;
 }
 
+	.contact, .contactWidget form {
+		background: #fff;
+		border: #dfdfdf solid 1px;
+		clear: both;
+		padding: 6px;
+		margin-top: 6px;
+	}
+	
+	.contact {
+		height: 80px;
+	}
+	
+	.contact img {
+		display: block;
+		float: left;
+		margin: 0 12px 12px 0;
+	}
+	
+	.contact .clear {
+		clear:left;
+	}
+	
+		a.collapse {
+			color: green;
+			display: block;
+			float: right;
+			margin-bottom: 6px;
+			text-align: right;
+			width: 50px;
+		}
+		
+
 	.contactWidget fieldset {
-		border: solid 1px #ccc;
+		border: none;
 	}
 

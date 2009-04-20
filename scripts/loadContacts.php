@@ -14,6 +14,7 @@
 			
 			//Mini Info
 			echo "<div id=\"{$info['contact_id']}\" class=\"contact interfaceElement\">";
+			echo "<img src=\"images/defaultPic.gif\" />";
 			echo "	<h3>{$info['first_name']} {$info['last_name']}</h3>";
 			
 			if($info['company']) {
@@ -23,8 +24,9 @@
 				echo "	<address>{$info['email']}</address>";
 			}
 			if($info['phone_one'] && $info['phone_two'] && $info['phone_three']) {
-				echo "	<span class=\"phone\">({$info['phone_one']})-{$info['phone_two']}-{$info['phone_three']}</address>";
+				echo "	<span class=\"phone\">({$info['phone_one']})-{$info['phone_two']}-{$info['phone_three']}</span>";
 			}
+			echo "	<span class=\"clear\"><!-- --></span>";
 			echo "</div>";
 			
 			
