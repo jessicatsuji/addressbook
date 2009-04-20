@@ -2,6 +2,8 @@ function Processing() {
 	var self = this;
 	this.root;
 	
+	this.ajaxAmbassador = new AjaxAmbassador();
+	
 	this.construct = function(element) {
 		self.root = element;
 	}
@@ -16,8 +18,9 @@ function Processing() {
 			var content;
 			
 			content = 	'<div class="contactWidget">';
-			content += 		'<form action="#" method="post">';
+			content += 		'<form action="#" method="post" id=form_' + returnData['data']['id'] + '>';
 			content += 			'<fieldset>';
+			
 			content += 				'<label>First Name:</label>';
 			content += 				'<input type="text" name="firstName_' + returnData['data']['id'] + '" id="firstName_' + returnData['data']['id'] + '" value="' + returnData['data']['first_name'] + '" />';
 			
@@ -59,14 +62,21 @@ function Processing() {
 			content +=				'<label>Notes:</label>';
 			content +=				'<textarea name="notes_' + returnData['data']['id'] + '" id="notes_' + returnData['data']['id'] + '">' + returnData['data']['notes'] + '</textarea>';
 			
-			content +=				'<button type="submit" id="updateBtn_' + returnData['data']['id'] + '">Update</button>';
+			content +=				'<button type="submit">Update</button>';
 			content +=			'</fieldset>';
 			content +=		'</form>';
 			content +=	'</div>';
 			
 			$('#interfaceContent', self.root).append( content );
-			$( '#updateBtn_' + returnData['data']['id'], self.root).bind('submit',function(){
-				alert('update widget #' + returnData['data']['id']);
+			
+			var theForm = '#form_' + returnData['data']['id'];
+			
+			self.sendData = $(theForm, self.root).serialize();
+			self.script = "editContact";
+			
+			$( theForm, self.root).bind('submit', function(){
+				//alert('update widget #' + returnData['data']['id']);
+				self.ajaxAmbassador.makeRequest( self.sendData, self.script );
 				return false;
 			});
 		}
