@@ -137,6 +137,10 @@ function Processing() {
 			
 			$(theForm, theWidget).hide();
 			$(".collapse",theWidget).toggle(function() {
+				$('#addContact').hide();
+				$('.contactWidget form').hide();
+				$('.contactWidget .contact').fadeIn("fast");
+				
 				var widget = $(this).parent();
 				$('.contact', widget).hide();
 				$('form', widget).fadeIn("fast");
