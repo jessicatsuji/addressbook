@@ -116,16 +116,21 @@ function Processing() {
 			$('#interfaceContent h4.error').remove();
 			$('#interfaceContent').append( content );
 			
+			self.ajaxAmbassador = new AjaxAmbassador();
+			
 			var theForm = '#form_' + returnData['data']['id'];
 			var theWidget = $(theForm).parent();
 			
-			self.sendData = $(theForm).serialize();
-			self.script = "editContact";
-			
-			$( theForm).bind('submit', function(){
+			$(theForm).bind('submit', function(){
 				//alert('update widget #' + returnData['data']['id']);
-				self.ajaxAmbassador = new AjaxAmbassador();
-				self.ajaxAmbassador.makeRequest( self.sendData, self.script );
+			
+				self.sendData = $(this).serialize();
+				self.sendData += '&contactID=' + $(this).attr('id');
+				self.script = "editContact";
+
+
+				alert(self.sendData);
+				self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
 				return false;
 			});
 			
