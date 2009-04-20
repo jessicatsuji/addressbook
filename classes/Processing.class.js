@@ -12,8 +12,8 @@ function Processing() {
 		if(returnData['errorMessage']) {
 			self.writeErrors(returnData);
 		} else {
-			alert('ID: ' + returnData['id'] + ' added!');
-			alert('data: ' + returnData['data']['zip_code']);
+			//alert('ID: ' + returnData['id'] + ' added!');
+			//alert('data: ' + returnData['data']['zip_code']);
 			
 			var content;
 			
@@ -146,8 +146,35 @@ function Processing() {
 	
 	this.editContact = function(returnData) {
 		if(returnData) {
-			alert(returnData);
-			//self.writeErrors(returnError);
+			//alert(returnData['id']);
+			
+			var miniInfo = $('#' + returnData['id']);
+			var widget = $(miniInfo).parent();
+			var form = $('form', widget);
+			
+			var firstName = $('#firstName_' + returnData['id'], form).val();
+			var lastName = $('#lastName_' + returnData['id'], form).val();
+			var company = $('#company_' + returnData['id'], form).val();
+			var email = $('#email_' + returnData['id'], form).val();
+			var phone1 = $('#phone1_' + returnData['id'], form).val();
+			var phone2 = $('#phone2_' + returnData['id'], form).val();
+			var phone3 = $('#phone3_' + returnData['id'], form).val();
+			
+			$(form).hide();
+			
+			var content = '	<h3>' + firstName + ' ' + lastName + '</h3>';
+			
+			if(company) {
+				content += '	<h5 class="company">' + company + '</h5>';
+			}
+			if(email) {
+				content += '	<address>' + email + '</address>';
+			}	
+			if(phone1 && phone2 && phone3) {
+				content += '	<span class="phone">(' + phone1 + ')-' + phone2 + '-' + phone3 + '</address>';
+			}
+			
+			$(miniInfo).show().html(content);
 		} else {
 			//add Contact
 		}
