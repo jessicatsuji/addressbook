@@ -146,7 +146,7 @@ function Processing() {
 	
 	this.editContact = function(returnData) {
 		if(returnData) {
-			alert('returnData');
+			alert(returnData);
 			//self.writeErrors(returnError);
 		} else {
 			//add Contact
