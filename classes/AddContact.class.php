@@ -20,9 +20,9 @@
 		private $arguments;
 		private $result;
 		private $line;
-		private static $return_array;
-		private static $contact_id = NULL;
-		private static $error_message = NULL;
+		public static $contact_id = NULL;
+		public static $error_message = NULL;
+		public static $return_array;
 		
 		public function __construct() {
 			
@@ -35,7 +35,7 @@
 		
 		private function validateInfo() {
 			//If all post variables are set
-			if (isset($_POST['firstName'] && $_POST['firstName'] != '') {
+			if (isset($_POST['firstName']) && $_POST['firstName'] != '') {
 			
 				//return true;
 			
@@ -53,7 +53,7 @@
 				$this->phone_two = $_POST['phone2'];
 				$this->phone_three = $_POST['phone3'];
 				$this->email = $_POST['email'];
-				$this->company = $_POST['compmany'];
+				$this->company = $_POST['company'];
 				$this->address_one = $_POST['address1'];
 				$this->address_two = $_POST['address2'];
 				$this->city = $_POST['city'];
@@ -62,8 +62,8 @@
 				$this->notes = $_POST['notes'];
 				$this->table = "contacts";
 
-				//Select query
-				$this->query_string = "INSERT INTO %s (first_name, last_name, phone_one, phone_two, phone_three, email, company, address_one, address_two, city, state, zip_code, notes, user_id) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s',);";
+				//Insert query
+				$this->query_string = "INSERT INTO %s (first_name, last_name, phone_one, phone_two, phone_three, email, company, address_one, address_two, city, state, zip_code, notes, user_id) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');";
 				
 				//Package array for query arguments
 				$this->packageInsertArguments();
@@ -75,24 +75,44 @@
 				$this->result = $this->db->query($this->query_string, $this->arguments);
 				
 				//Grab last id from inserted row
-				$this->contact_id = mysql_insert_id();
+				//$this->contact_id = mysql_insert_id();
 				
 				//Check to see if user name already exists and redirect, else create new user
-				if ($this->contact_id) {
-					$return_array = array('id'=>$this->contact_id, 'errorMessage'=>NULL);
+				if ($this->result) {
+				//Select query
+					$this->query_string = "SELECT * FROM %s WHERE user_id = %s ORDER BY id DESC LIMIT 1;";
+				
+					//Package array for query arguments
+					$this->packageSelectArguments();
+		
+					//Connect to database
+					$this->db = DbConnect::get();
+							
+					//call query method
+					$this->result = $this->db->query($this->query_string, $this->arguments);
+					$this->line = mysql_fetch_array($this->result, MYSQL_ASSOC);
+					
+					$this->contact_id = $this->line['id'];
+
+					$this->return_array = array('id'=>$this->contact_id, 'errorMessage'=>NULL);
 				} else {
 					$this->error_message = 'Unable to add contact';
-					$return_array = array('id'=>$this->contact_id, 'errorMessage'=>$this->error_message);
+					$this->return_array = array('id'=>$this->contact_id, 'errorMessage'=>$this->error_message);
 				}
 			//If errors, set session and redirect
 			} else {
-				$return_array = array('id'=>$this->contact_id, 'errorMessage'=>$this->error_message);
+				$this->return_array = array('id'=>$this->contact_id, 'errorMessage'=>$this->error_message);
 			}
 
 		}
 		
 		private function packageInsertArguments() {
-			$this->arguments = array($this->table, $this->first_name, $this->last_name, $this->phone_one, $this->phone_two, $this->phone_three, $this->email, $this->company, $this->address_one, $this->address_two, $this->city, $this->state, $this->zip_code, $this->notes, $_SESSION['current_user']);
+			$this->arguments = array($this->table, $this->first_name, $this->last_name, $this->phone_one, $this->phone_two, $this->phone_three, $this->email, $this->company, $this->address_one, $this->address_two, $this->city, $this->state, $this->zip_code, $this->notes, $_SESSION['current_user_id']);
+			return true;
+		}
+		
+		private function packageSelectArguments() {
+			$this->arguments = array($this->table, $_SESSION['current_user_id']);
 			return true;
 		}
 
