@@ -10,7 +10,7 @@ function InterfaceActions() {
 		self.root = element;
 		
 		//self.ajaxAmbassador.construct(element);
-		//self.processing.construct(element);
+		self.processing.construct(element);
 		
 		//Hide/Show add contact panel
 		self.showAddPanel(element);
