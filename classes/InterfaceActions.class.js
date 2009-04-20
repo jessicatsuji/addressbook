@@ -51,11 +51,12 @@ function InterfaceActions() {
 			//Do something with returned data
 			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
 			
-			self.sendData = $(element + " #editContact form").serialize();
+			self.sendData = $(element).serialize();
+			alert(self.sendData);
 			self.script = "editContact"
 			
-			self.ajaxResponse = self.ajaxAmbassador.construct(self.sendData, self.script);
-			self.processing.edit(self.ajaxResponse);
+			//self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
+			//self.processing.edit(self.ajaxResponse);
 	
 
 	}
