@@ -6,21 +6,20 @@ function Processing() {
 		self.root = element;
 	}
 	
-	this.add = function(returnData) {
-		if(returnData['errorMessage'] != NULL) {
+	this.addContact = function(returnData) {
+		if(returnData['errorMessage']) {
 			self.writeErrors(returnData);
 		} else {
 			alert('ID: ' + returnData['id'] + ' added!');
 		}	
 	}
 	
-	this.edit = function(returnData) {
-		if(returnData) {
-			self.writeErrors();
+	this.edit = function(returnID, returnError) {
+		if(returnError) {
+			self.writeErrors(returnError);
 		} else {
 			//add Contact
-		}	
-	
+		}
 	}
 	
 	this.writeErrors = function(returnData) {
