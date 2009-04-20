@@ -85,7 +85,7 @@
 				$this->result = $this->db->query($this->query_string, $this->arguments);
 				
 				
-				$this->return_array = array('id'=>$this->real_contact_id, 'errorMessage'=>$this->error_message);
+				$this->return_array = array('id'=>$this->real_contact_id, 'errorMessage'=>NULL);
 				
 			//If errors, set session and redirect
 			} else {
