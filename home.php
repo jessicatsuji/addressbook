@@ -30,7 +30,7 @@
 	<div id="wrapper">
 		<div id="controlBarWrapper">
 			<div id="controlBarContent">
-				<h1><?php echo $_SESSION['current_user'] ?>'s <span>addressbook</span></h1>
+				<h1><?php echo $_SESSION['current_user'] ?>'s <span>addressBook</span></h1>
 				<a class="logout" href="scripts/logout.php">Logout</a>
 				<span id="preloader"></span>
 				<div id="addBtn"><span>Add Contact</span></div>
