@@ -16,7 +16,24 @@ function Processing() {
 			var content;
 			
 			content = 	'<div class="contactWidget">';
-			content += 		'<form action="#" method="post">';
+			
+			//Mini Info
+			content += '<div id="' + returnData['data']['id'] + '" class="contact interfaceElement">';
+			content += '	<h3>' + returnData['data']['first_name'] + ' ' + returnData['data']['last_name'] + '</h3>';
+			
+			if(returnData['data']['company']) {
+				content += '	<h5 class="company">' + returnData['data']['company'] + '</h5>';
+			}
+			if(returnData['data']['email']) {
+				content += '	<address>' + returnData['data']['email'] + '</address>';
+			}	
+			if(returnData['data']['phone_one'] && returnData['data']['phone_two'] && returnData['data']['phone3']) {
+				content += '	<span class="phone">(' + returnData['data']['phone_one'] + ')-' + returnData['data']['phone_two'] + '-' + returnData['data']['phone_three'] + '</address>';
+			}
+			content += '</div>';
+			
+			//Form hidden by default until clicked
+			content += 		'<form action="#" method="post" id="form_' + returnData['data']['id'] + '">';
 			content += 			'<fieldset>';
 			content += 				'<label>First Name:</label>';
 			content += 				'<input type="text" name="firstName_' + returnData['data']['id'] + '" id="firstName_' + returnData['data']['id'] + '" value="' + returnData['data']['first_name'] + '" />';
@@ -49,7 +66,30 @@ function Processing() {
 			
 			content +=					'<label>State:</label>';
 			content +=					'<select name="state" id="state">';
-			content +=						'<option label="OR" title="Oregon" value="1">OR</option>';
+			
+			//Checking the which option should be selected
+			content += "				<option label=\"CA\" title=\"California\" value=\"1\"";
+			content += (returnData['data']['state'] == '1') ? " selected=\"selected\"" : "";
+			content += ">CA</option>		";
+			
+			content += "				<option label=\"HI\" title=\"Hawaii\" value=\"2\"";
+			content += (returnData['data']['state'] == '2') ? " selected=\"selected\"" : "";
+			content += ">HI</option>		";
+			
+			content += "				<option label=\"OR\" title=\"Oregon\" value=\"3\"";
+			content += (returnData['data']['state'] == '3') ? " selected=\"selected\"" : "";
+			content += ">OR</option>		";
+			
+			content += "				<option label=\"NV\" title=\"Nevada\" value=\"4\"";
+			content += (returnData['data']['state'] == '4') ? " selected=\"selected\"" : "";
+			content += ">NV</option>		";
+			
+			content += "				<option label=\"WA\" title=\"Washington\" value=\"5\"";
+			content += (returnData['data']['state'] == '5') ? " selected=\"selected\"" : "";
+			content += ">WA</option>		";
+			
+			
+							
 			content +=					'</select>';
 			
 			content +=					'<label>Zip:</label>';
@@ -64,6 +104,7 @@ function Processing() {
 			content +=		'</form>';
 			content +=	'</div>';
 			
+			$('#interfaceContent h4.error', self.root).remove();
 			$('#interfaceContent', self.root).append( content );
 			$( '#updateBtn_' + returnData['data']['id'], self.root).bind('submit',function(){
 				alert('update widget #' + returnData['data']['id']);
