@@ -92,6 +92,20 @@
 				<div id="0" class="contact interfaceElement">
 				</div>
 				-->
+				
+				<?php 
+					foreach($loadContacts as $contact) {
+						foreach($contact as $info) {
+							echo '<div>';
+							foreach($info as $data) {
+								echo '<div>';
+								echo($data);
+								echo '</div>';
+							}
+							echo '</div>';
+						}
+					}
+				?>
 			</div>
 		</div>
 	</div>
