@@ -65,7 +65,7 @@ function Processing() {
 			content +=	'</div>';
 			
 			$('#interfaceContent', self.root).append( content );
-			$( '#updateBtn' + returnData['data']['id'], self.root).bind('submit',function(){
+			$( '#updateBtn_' + returnData['data']['id'], self.root).bind('submit',function(){
 				alert('update widget #' + returnData['data']['id']);
 				return false;
 			});
