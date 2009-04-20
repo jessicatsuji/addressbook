@@ -18,6 +18,17 @@ function InterfaceActions() {
 			self.addContact(self.root);
 			return false;
 		});
+		
+		$('#interfaceContent .contactWidget').each(function() {
+			self.setContactHide(this);
+		});
+		
+		$('#interfaceContent form').each(function() {
+			$(this).bind('submit', function(){
+				self.editContact(this);
+				return false;
+			});
+		});
 	}
 	
 	this.showAddPanel = function(element) {
@@ -33,6 +44,24 @@ function InterfaceActions() {
 				addPanel.fadeOut("fast");
 			}
 		);
+	}
+	
+	this.setContactHide = function(element) {
+		
+		$("form", element).hide();
+		$(".collapse",element).toggle(function() {
+			var widget = $(this).parent();
+			$('.contact', widget).hide();
+			$('form', widget).fadeIn("fast");
+			$(this).text("Collapse");
+		},
+		function() {
+			var widget = $(this).parent();
+			$('form', widget).hide();
+			$('.contact', widget).fadeIn("fast");
+			$(this).text("Edit");
+		});
+		
 	}
 
 	this.addContact = function(element) {
