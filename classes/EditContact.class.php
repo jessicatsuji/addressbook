@@ -26,7 +26,7 @@
 		public function __construct() {
 			
 			//Checks the posts for spaces, blanks, and matching passwords
-			$this->validateInfo();
+			//$this->validateInfo();
 			
 			//Checks the $error variable, if set then set errors and redirect to index else query db
 			$this->handleInfo();
@@ -51,6 +51,8 @@
 			$realResult = preg_split( "/_/", $contact_id );
 			$real_contact_id = $realResult[1];
 			
+			$this->return_array = $real_contact_id;
+			/*
 			$this->first_name = $_POST['firstName'] . $contact_id;
 			$this->last_name = $_POST['lastName'] . $contact_id;
 			$this->phone_one = $_POST['phone1'] . $contact_id;
@@ -76,8 +78,8 @@
 			$this->db = DbConnect::get();
 					
 			//call query method
-			$this->result = $this->db->query($this->query_string, $this->arguments);
-
+			//$this->result = $this->db->query($this->query_string, $this->arguments);
+*/
 		}
 		
 		private function packageEditArguments() {
