@@ -7,6 +7,7 @@ function AjaxAmbassador() {
 	this.processing = new Processing();
 	
 	this.construct = function() {
+		this.processing.construct();
 	}
 	
 	//Ajax call to add a contact
@@ -54,4 +55,5 @@ function AjaxAmbassador() {
 	this.complete = function(returnData, textStatus) {
 	// $('#preloader').html("");
 	}
+	
 }
