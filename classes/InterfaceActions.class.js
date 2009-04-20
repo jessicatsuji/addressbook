@@ -78,14 +78,12 @@ function InterfaceActions() {
 		//Wait for event
 			//ambassador.makeRequest(data)
 			//Do something with returned data
-			//self.ajaxResponse = self.ajaxAmbassador.makeRequest();
 			
 			self.sendData = $(element).serialize();
-			alert(self.sendData);
+			self.sendData += '&contactID=' + $(element).attr('id');
 			self.script = "editContact"
 			
-			//self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
-			//self.processing.edit(self.ajaxResponse);
+			self.ajaxResponse = self.ajaxAmbassador.makeRequest(self.sendData, self.script);
 	
 
 	}
