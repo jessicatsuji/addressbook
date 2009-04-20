@@ -2,10 +2,10 @@ function Processing() {
 	var self = this;
 	this.root;
 	
-	this.ajaxAmbassador = new AjaxAmbassador();
+	//this.ajaxAmbassador = new AjaxAmbassador();
 	
-	this.construct = function(element) {
-		self.root = element;
+	this.construct = function() {
+		//self.root = element;
 	}
 	
 	this.addContact = function(returnData) {
@@ -18,6 +18,7 @@ function Processing() {
 			var content;
 			
 			content = 	'<div class="contactWidget">';
+			content += '<a href="#" class="collapse">Edit</a>';
 			
 			//Mini Info
 			content += '<div id="' + returnData['data']['id'] + '" class="contact interfaceElement">';
@@ -107,25 +108,46 @@ function Processing() {
 			content +=		'</form>';
 			content +=	'</div>';
 			
-			$('#interfaceContent h4.error', self.root).remove();
-			$('#interfaceContent', self.root).append( content );
+			$('#interfaceContent h4.error').remove();
+			$('#interfaceContent').append( content );
 			
 			var theForm = '#form_' + returnData['data']['id'];
+			var theWidget = $(theForm).parent();
 			
-			self.sendData = $(theForm, self.root).serialize();
+			self.sendData = $(theForm).serialize();
 			self.script = "editContact";
 			
-			$( theForm, self.root).bind('submit', function(){
+			$( theForm).bind('submit', function(){
 				//alert('update widget #' + returnData['data']['id']);
+				self.ajaxAmbassador = new AjaxAmbassador();
 				self.ajaxAmbassador.makeRequest( self.sendData, self.script );
 				return false;
 			});
+			
+			
+			$(theForm, theWidget).hide();
+			$(".collapse",theWidget).toggle(function() {
+				var widget = $(this).parent();
+				$('.contact', widget).hide();
+				$('form', widget).fadeIn("fast");
+				$(this).text("Collapse");
+			},
+			function() {
+				var widget = $(this).parent();
+				$('form', widget).hide();
+				$('.contact', widget).fadeIn("fast");
+				$(this).text("Edit");
+			});
+			
+			$("#addContact").slideUp("fast");
+
 		}
 	}
 	
-	this.edit = function(returnID, returnError) {
-		if(returnError) {
-			self.writeErrors(returnError);
+	this.editContact = function(returnData) {
+		if(returnData) {
+			alert('returnData');
+			//self.writeErrors(returnError);
 		} else {
 			//add Contact
 		}
