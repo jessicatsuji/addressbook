@@ -34,7 +34,7 @@
 				<div id="addBtn"><span>Add Contact</span></div>
 				<div class="clear"><!-- --></div>
 				<div id="addContact">
-					<form action="scripts/addContact.php" method="post">						
+					<form action="#" method="post">						
 						<fieldset>
 							<label>First Name:</label>
 							<input type="text" name="firstName" />
@@ -66,8 +66,8 @@
 								<input type="text" name="city" />
 								
 								<label>State:</label>
-								<select class="state">
-									<option label="OR" title="Oregon" value="1"></option>
+								<select name="state" id="state">
+									<option label="OR" title="Oregon" value="1">OR</option>
 								</select>
 								
 								<label>Zip:</label>
