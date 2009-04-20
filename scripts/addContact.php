@@ -4,7 +4,7 @@
 	require_once("../classes/DbConnect.class.php");
 	
 	$addContact = new AddContact();
-	$retunArray = $addContact->return_array;
+	$returnArray = $addContact->return_array;
 	//$returnArray = array("id"=>1, "message"=>"error message");
 	$data = json_encode($returnArray);
 	echo $data;
