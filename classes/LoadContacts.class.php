@@ -52,7 +52,19 @@
 			if(mysql_num_rows($this->result)) {
 				while($this->contacts = mysql_fetch_array($this->result, MYSQL_ASSOC)) {
 					$this->contact = array('contact_id'=>$this->contacts['id'],
-											'first_name'=>$this->contacts['first_name']
+											'first_name'=>$this->contacts['first_name'],
+											'last_name'=>$this->contacts['last_name'],
+											'phone_one'=>$this->contacts['phone_one'],
+											'phone_two'=>$this->contacts['phone_two'],
+											'phone_three'=>$this->contacts['phone_three'],
+											'email'=>$this->contacts['email'],
+											'company'=>$this->contacts['company'],
+											'address_one'=>$this->contacts['address_one'],
+											'address_two'=>$this->contacts['address_two'],
+											'city'=>$this->contacts['city'],
+											'state'=>$this->contacts['state'],
+											'zip_code'=>$this->contacts['zip_code'],
+											'notes'=>$this->contacts['notes']
 											);
 					
 					array_push($this->contacts_array, $this->contact);
