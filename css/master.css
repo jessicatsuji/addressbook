@@ -1,2 +1,77 @@
 @charset "utf-8";
-/* Main Styles */
+/* Master.css */
+
+/*General Styles*/
+
+* {
+	margin: 0;
+	padding: 0;;
+
+}
+
+body{ 
+	font-family: Verdana, Helvetica, Arial;
+	font-size: 12px;
+}
+
+.clear {
+	clear: both;
+}
+/*Control Bar*/
+
+#controlBarWrapper {
+	background: url(../images/toolBarBG.gif) repeat-x;
+	height: 40px;
+}
+
+#controlBarContent {
+	margin: 0 auto;
+	width: 948px;
+}
+
+#controlBarContent h1 {
+	border-left: solid 1px #292929;
+	color: #cedfe6;
+	float: left;
+	font-size: 20px;
+	line-height: 40px;
+	padding-left: 30px;
+}
+	#controlBarContent h1 span {
+		color: #505c61;
+		font-weight: normal;
+	}
+	
+.logout {
+	display:block;
+	float: left;
+	padding: 10px 10px;
+}
+
+.logout:hover {
+	background: url(../images/toolBarOver.gif) repeat-x;
+}
+
+#addContact {
+	float: right;
+	width: 217px;	
+}
+
+#addBtn {
+	border-left: solid 1px #292929;
+	border-right: solid 1px #292929;
+	cursor: pointer;
+	float: right;
+	padding-right: 30px;
+	width: 168px;
+}
+
+	#addBtn span {
+		background: url(../images/addIcon.png) right no-repeat;
+		color: #fff;
+		display: block;
+		font-size: 14px;
+		height: 30px;
+		padding-top: 10px;
+		text-align: center;
+	}

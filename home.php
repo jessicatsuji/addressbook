@@ -10,7 +10,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>AddressBook App</title>
-	<link type="text/css" rel="stylesheet" href="css/mainStyles.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="css/master.css" media="all" />
 	<!-- Libraries -->
 	<script type="text/javascript" src="libraries/jquery.js"></script>
 	<script type="text/javascript" src="libraries/jqueryUI.js"></script>
@@ -28,12 +28,13 @@
 	<div id="wrapper">
 		<div id="controlBarWrapper">
 			<div id="controlBarContent">
-				<h1>Logo</h1>
-				<h2>Welcome, <!-- dynamic Username -->!</h2>
-				<a href="scripts/logout.php">Logout</a>
+				<h1><?php echo $_SESSION['current_user'] ?>'s <span>addressbook</span></h1>
+				<a class="logout" href="scripts/logout.php">Logout</a>
 				<span id="preloader"></span>
+				<div id="addBtn"><span>Add Contact</span></div>
+				<div class="clear"><!-- --></div>
 				<div id="addContact">
-					<form action="scripts/addContact.php" method="post">						
+					<form action="#" method="post">						
 						<fieldset>
 							<label>First Name:</label>
 							<input type="text" name="firstName" />
@@ -52,7 +53,7 @@
 							<input type="text" name="email" />
 							
 							<label>Company:</label>
-							<input type="text" name="Company" />
+							<input type="text" name="company" />
 							
 							<label>Address:</label>
 							<div class="address inputGroup">
@@ -65,8 +66,8 @@
 								<input type="text" name="city" />
 								
 								<label>State:</label>
-								<select class="state">
-									<option label="OR" title="Oregon" value="1"></option>
+								<select name="state" id="state">
+									<option label="OR" title="Oregon" value="1">OR</option>
 								</select>
 								
 								<label>Zip:</label>
@@ -80,6 +81,7 @@
 						</fieldset>
 					</form>
 				</div>
+				<div class="clear"><!-- --></div>
 			</div>
 		</div>
 		<div id="interfaceWrapper">

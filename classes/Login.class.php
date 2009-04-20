@@ -75,6 +75,7 @@ class Login {
 			//Set session redirect
 			$_SESSION['login'] = true;
 			$_SESSION['current_user'] = $this->line['user_name'];
+			$_SESSION['current_user_id'] = $this->line['id'];
 			
 			$this->query_string = "UPDATE %s SET logged_in = 1 WHERE user_name = '%s' AND password = '%s'";
 			$this->result = $this->db->query($this->query_string, $this->arguments);

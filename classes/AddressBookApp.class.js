@@ -8,7 +8,7 @@ function AddressBookApp() {
 		self.root = element;
 		self.interfaceActions.construct(self.root);
 		
-		self.addContact = self.interfaceActions.addContact();
-		self.editContact = self.interfaceActions.editContact();
+		//self.interfaceActions.addContact();
+		//self.interfaceActions.editContact();
 	}
 }
