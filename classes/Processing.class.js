@@ -31,7 +31,7 @@ function Processing() {
 			if(returnData['data']['email']) {
 				content += '	<address>' + returnData['data']['email'] + '</address>';
 			}	
-			if(returnData['data']['phone_one'] && returnData['data']['phone_two'] && returnData['data']['phone3']) {
+			if(returnData['data']['phone_one'] && returnData['data']['phone_two'] && returnData['data']['phone_three']) {
 				content += '	<span class="phone">(' + returnData['data']['phone_one'] + ')-' + returnData['data']['phone_two'] + '-' + returnData['data']['phone_three'] + '</span>';
 			}
 			
