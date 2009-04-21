@@ -39,6 +39,8 @@ function InterfaceActions() {
 		addBtn.toggle(
 			function() {
 				addPanel.fadeIn("fast");
+				$('.contactWidget form').hide();
+				$('.contactWidget .contact').fadeIn("fast");
 			},
 			function() {
 				addPanel.fadeOut("fast");
@@ -50,6 +52,10 @@ function InterfaceActions() {
 		
 		$("form", element).hide();
 		$(".collapse",element).toggle(function() {
+			$('#addContact').hide();
+			$('.contactWidget form').hide();
+			$('.contactWidget .contact').fadeIn("fast");
+				
 			var widget = $(this).parent();
 			$('.contact', widget).hide();
 			$('form', widget).fadeIn("fast");
