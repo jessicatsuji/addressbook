@@ -1,4 +1,29 @@
 <?php
+	/**
+	 * AddContact class - Will add a new contact to the database
+	 * 
+	 * @class Will add a new contact to the database
+	 * @var string $first_name
+	 * @var string $last_name
+	 * @var string $phone_one
+	 * @var string $phone_two
+	 * @var string $phone_three
+	 * @var string $email
+	 * @var string $company
+	 * @var string $address_one
+	 * @var string $address_two
+	 * @var string $city
+	 * @var string $state
+	 * @var string $zip_code
+	 * @var string $notes
+	 * @var string $db
+	 * @var string $table
+	 * @var string $logged_in
+	 * @var string $query_string
+	 * @var array $arguments
+	 * @var string $result
+	 * @var string $line
+	 **/
 	class AddContact {
 		private $first_name;
 		private $last_name; 
@@ -32,11 +57,15 @@
 			//Checks the $error variable, if set then set errors and redirect to index else query db
 			$this->handleInfo();
 		}
-		
+
 		public function __get($return_array) {
 			return $this->return_array;
 		}
 		
+		/**
+		 * 
+		 * @return void
+		 **/
 		private function validateInfo() {
 			//If all post variables are set
 			if (isset($_POST['firstName']) && $_POST['firstName'] != '') {
