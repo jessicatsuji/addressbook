@@ -10,7 +10,7 @@
 }
 
 body{
-	background: #333; 
+	background: url(../images/bg.jpg) top center no-repeat; 
 	font-family: Verdana, Helvetica, Arial;
 	font-size: 12px;
 }
