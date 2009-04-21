@@ -1,4 +1,20 @@
 <?php
+	/**
+	 * CreateUser class - Creates a new user and adds to the database
+	 *
+	 * @var array $postArray
+	 * @var string $first_name
+	 * @var string $user_name
+	 * @var string $password
+	 * @var string $db
+	 * @var string $table
+	 * @var string $logged_in
+	 * @var string $query_string
+	 * @var array $arguments
+	 * @var string $result
+	 * @var array $line
+	 * @var string $errorMsg
+	 **/
 	class CreateUser {
 		private $postArray;
 		private $first_name;

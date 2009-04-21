@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * CreateUser class - Creates a new user and adds to the database
+ *
+ * @var string $host
+ * @var string $user
+ * @var string $pass
+ * @var string $name
+ * @var string $conn
+ **/
 class DbConnect {
 	private $host = 'localhost';
 	private $user = 'basic_user';
